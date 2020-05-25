@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+<div class="container-fluid px-0" style="height: 100vh">
+    <nav class="navbar navbar-expand-sm navbar-dark rounded" style="height: 10%; background-color: #52596c">
+        <!-- Brand -->
+        <a class="navbar-brand" href="#">Premier Đà Nẵng</a>
+
+        <!-- Links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Trang Chủ</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Liên Hệ</a>
+            </li>
+
+            <!-- Dropdown -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                    Tuyển Dụng
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Link 1</a>
+                    <a class="dropdown-item" href="#">Link 2</a>
+                    <a class="dropdown-item" href="#">Link 3</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <div class="row px-0 mx-0" style="height: 90%">
+        <div class="col-2 px-0">
+            <ul class="list-group border border-primary h-100">
+                <li class="list-group-item active">Home</li>
+                <li class="list-group-item">Quản lí nhân viên</li>
+                <li class="list-group-item">Quản lí dịch vụ</li>
+                <li class="list-group-item">Quản lí khách hàng</li>
+                <li class="list-group-item">Quản lí hợp đồng</li>
+                <li class="list-group-item">Quản lí hợp đồng chi tiết</li>
+            </ul>
+        </div>
+        <div class="col-10 p-5">
+            <div class="row justify-content-between">
+                <h2>Danh Sách Hợp Đồng</h2>
+                <div class="d-flex">
+                    <input class="form-control mr-3" type="text" style="width: 300px" placeholder="nhập tên tìm kiếm"/>
+                    <button class="btn btn-outline-success">Search</button>
+                </div>
+            </div>
+
+            <div class="row mt-3 px-3">
+                <button class="btn btn-outline-success">Thêm Mới</button>
+                <table class="table mt-3 table-striped" style="font-size: 12px">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Ngày Bắt Đầu</th>
+                        <th>Ngày Kết Thúc</th>
+                        <th>Tiền Đặt Cọc</th>
+                        <th>Khuyến Mại</th>
+                        <th>Tổng Tiền</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <th:block>
+                        <tr th:each="contract : ${contracts}">
+                            <td th:text="${contract.id}"></td>
+                            <td th:text="${contract.startDay}"></td>
+                            <td th:text="${contract.endDay}"></td>
+                            <td th:text="${contract.advancePayment}"></td>
+                            <td th:text="${contract.distCount}"></td>
+                            <td th:text="${contract.total}"></td>
+                            <td>
+                                <button class="btn btn-sm btn-warning mr-3">Sửa</button>
+                                <button class="btn btn-sm btn-danger">Xóa</button>
+                            </td>
+                        </tr>
+                    </th:block>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
