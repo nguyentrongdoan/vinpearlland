@@ -47,7 +47,7 @@
         </div>
         <div class="col-10 p-5">
             <div class="row justify-content-between">
-                <h2>Danh Sách Nhân Viên</h2>
+                <h2>Danh Sách Hợp Đồng</h2>
                 <div class="d-flex">
                     <input class="form-control mr-3" type="text" style="width: 300px" placeholder="nhập tên tìm kiếm"/>
                     <button class="btn btn-outline-success">Search</button>
@@ -60,43 +60,31 @@
                 <button class="btn btn-outline-success">Sắp Xếp Z-A</button>
                 <table class="table mt-3 table-striped" style="font-size: 12px">
                     <thead>
-                       <tr>
-                           <th>ID</th>
-                           <th>Mã Nhân Viên</th>
-                           <th>Họ và Tên</th>
-                           <th>Ngày Sinh</th>
-                           <th>Chức Vụ</th>
-                           <th>Trình Độ</th>
-                           <th>Bộ Phận</th>
-                           <th>CMND</th>
-                           <th>Điện Thoại</th>
-                           <th>Email</th>
-                           <th>Địa Chỉ</th>
-                           <th>Lương</th>
-                           <th>Action</th>
-                       </tr>
+                    <tr>
+                        <th>ID</th>
+                        <th>Ngày Bắt Đầu</th>
+                        <th>Ngày Kết Thúc</th>
+                        <th>Tiền Đặt Cọc</th>
+                        <th>Khuyến Mại</th>
+                        <th>Tổng Tiền</th>
+                        <th>Action</th>
+                    </tr>
                     </thead>
                     <tbody>
-                        <th:block>
-                            <tr th:each="employee : ${employees}">
-                                <td th:text="${employee.id}"></td>
-                                <td th:text="${employee.employeeCode}"></td>
-                                <td th:text="${employee.fullName}"></td>
-                                <td th:text="${employee.birthDay}"></td>
-                                <td th:text="${employee.position}"></td>
-                                <td th:text="${employee.level}"></td>
-                                <td th:text="${employee.department}"></td>
-                                <td th:text="${employee.idCard}"></td>
-                                <td th:text="${employee.phone}"></td>
-                                <td th:text="${employee.email}"></td>
-                                <td th:text="${employee.address}"></td>
-                                <td th:text="${employee.salary}"></td>
-                                <td>
-                                    <button class="btn btn-sm btn-warning mr-3">Sửa</button>
-                                    <button class="btn btn-sm btn-danger">Xóa</button>
-                                </td>
-                            </tr>
-                        </th:block>
+                    <th:block>
+                        <tr th:each="contract : ${contracts}">
+                            <td th:text="${contract.id}"></td>
+                            <td th:text="${contract.startDay}"></td>
+                            <td th:text="${contract.endDay}"></td>
+                            <td th:text="${contract.advancePayment}"></td>
+                            <td th:text="${contract.distCount}"></td>
+                            <td th:text="${contract.total}"></td>
+                            <td>
+                                <button class="btn btn-sm btn-warning mr-3">Sửa</button>
+                                <button class="btn btn-sm btn-danger">Xóa</button>
+                            </td>
+                        </tr>
+                    </th:block>
                     </tbody>
                 </table>
             </div>

@@ -47,7 +47,7 @@
         </div>
         <div class="col-10 p-5">
             <div class="row justify-content-between">
-                <h2>Danh Sách Nhân Viên</h2>
+                <h2>Danh Sách Dịch Vụ</h2>
                 <div class="d-flex">
                     <input class="form-control mr-3" type="text" style="width: 300px" placeholder="nhập tên tìm kiếm"/>
                     <button class="btn btn-outline-success">Search</button>
@@ -60,37 +60,31 @@
                 <button class="btn btn-outline-success">Sắp Xếp Z-A</button>
                 <table class="table mt-3 table-striped" style="font-size: 12px">
                     <thead>
-                       <tr>
-                           <th>ID</th>
-                           <th>Mã Nhân Viên</th>
-                           <th>Họ và Tên</th>
-                           <th>Ngày Sinh</th>
-                           <th>Chức Vụ</th>
-                           <th>Trình Độ</th>
-                           <th>Bộ Phận</th>
-                           <th>CMND</th>
-                           <th>Điện Thoại</th>
-                           <th>Email</th>
-                           <th>Địa Chỉ</th>
-                           <th>Lương</th>
-                           <th>Action</th>
-                       </tr>
+                    <tr>
+                        <th>ID</th>
+                        <th>Mã Dịch Vụ</th>
+                        <th>Tên Dịch Vụ</th>
+                        <th>Diện Tích</th>
+                        <th>Số Tầng</th>
+                        <th>Số Người</th>
+                        <th>Giá</th>
+                        <th>Trạng Thái</th>
+                        <th>Gói Dịch Vụ</th>
+                        <th>Action</th>
+                    </tr>
                     </thead>
                     <tbody>
                         <th:block>
-                            <tr th:each="employee : ${employees}">
-                                <td th:text="${employee.id}"></td>
-                                <td th:text="${employee.employeeCode}"></td>
-                                <td th:text="${employee.fullName}"></td>
-                                <td th:text="${employee.birthDay}"></td>
-                                <td th:text="${employee.position}"></td>
-                                <td th:text="${employee.level}"></td>
-                                <td th:text="${employee.department}"></td>
-                                <td th:text="${employee.idCard}"></td>
-                                <td th:text="${employee.phone}"></td>
-                                <td th:text="${employee.email}"></td>
-                                <td th:text="${employee.address}"></td>
-                                <td th:text="${employee.salary}"></td>
+                            <tr th:each="service : ${services}">
+                                <td th:text="${service.id}"></td>
+                                <td th:text="${service.serviceCode}"></td>
+                                <td th:text="${service.serviceName}"></td>
+                                <td th:text="${service.area}"></td>
+                                <td th:text="${service.numberOfFloor}"></td>
+                                <td th:text="${service.amountOfPeople}"></td>
+                                <td th:text="${service.price}"></td>
+                                <td th:text="${service.status}"></td>
+                                <td th:text="${service.serviceType.name}"></td>
                                 <td>
                                     <button class="btn btn-sm btn-warning mr-3">Sửa</button>
                                     <button class="btn btn-sm btn-danger">Xóa</button>

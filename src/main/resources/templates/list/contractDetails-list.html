@@ -47,7 +47,7 @@
         </div>
         <div class="col-10 p-5">
             <div class="row justify-content-between">
-                <h2>Danh Sách Hợp Đồng</h2>
+                <h2>Danh Sách Hợp Đồng Chi Tiết</h2>
                 <div class="d-flex">
                     <input class="form-control mr-3" type="text" style="width: 300px" placeholder="nhập tên tìm kiếm"/>
                     <button class="btn btn-outline-success">Search</button>
@@ -55,28 +55,22 @@
             </div>
 
             <div class="row mt-3 px-3">
-                <button class="btn btn-outline-success">Thêm Mới</button>
+                <button class="btn btn-outline-success mr-4">Thêm Mới</button>
+                <button class="btn btn-outline-success mr-4">Sắp Xếp A-Z</button>
+                <button class="btn btn-outline-success">Sắp Xếp Z-A</button>
                 <table class="table mt-3 table-striped" style="font-size: 12px">
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Ngày Bắt Đầu</th>
-                        <th>Ngày Kết Thúc</th>
-                        <th>Tiền Đặt Cọc</th>
-                        <th>Khuyến Mại</th>
-                        <th>Tổng Tiền</th>
+                        <th>Số Lượng</th>
                         <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
                     <th:block>
-                        <tr th:each="contract : ${contracts}">
-                            <td th:text="${contract.id}"></td>
-                            <td th:text="${contract.startDay}"></td>
-                            <td th:text="${contract.endDay}"></td>
-                            <td th:text="${contract.advancePayment}"></td>
-                            <td th:text="${contract.distCount}"></td>
-                            <td th:text="${contract.total}"></td>
+                        <tr th:each="contractDetail : ${contractDetails}">
+                            <td th:text="${contractDetail.id}"></td>
+                            <td th:text="${contractDetail.amount}"></td>
                             <td>
                                 <button class="btn btn-sm btn-warning mr-3">Sửa</button>
                                 <button class="btn btn-sm btn-danger">Xóa</button>
@@ -90,5 +84,9 @@
     </div>
 </div>
 
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </body>
 </html>
